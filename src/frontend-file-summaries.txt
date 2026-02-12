@@ -3,7 +3,7 @@
   "frontend/src/features/session/state/sessionMachine.ts": "Type definitions for session state machine with states from idle through completed/failed and session context interface.",
   "frontend/src/features/session/utils/joinCode.ts": "Utilities for generating, validating, formatting session codes using unambiguous characters and creating/parsing QR code payloads with FILEDROP prefix.",
   "frontend/src/features/session/utils/sessionExpiry.ts": "Session expiry utilities providing TTL management (10 minutes), expiry checking, and remaining time formatting for user feedback.",
-  "frontend/src/features/session/components/LandingScreen.tsx": "Landing page with hero image, role selection buttons (Send/Receive), feature highlights, and footer with privacy policy link; AdMob native ad card removed.",
+  "frontend/src/features/session/components/LandingScreen.tsx": "Landing page with hero image, role selection buttons (Send/Receive), feature highlights, and footer with privacy policy link and copyright (Caffeine attribution removed).",
   "frontend/src/features/session/components/BrandHeader.tsx": "Reusable header component displaying the AirShare logo and app name for consistent branding across screens with fixed square dimensions to prevent layout shift.",
   "frontend/src/features/session/components/SenderSessionScreen.tsx": "Sender session screen that generates and displays session code, renders QR code, manages WebRTC offer creation, and waits for receiver to join.",
   "frontend/src/features/session/components/ReceiverJoinScreen.tsx": "Receiver screen with manual code entry and QR scanner modes, enhanced camera permission error handling and UI feedback.",

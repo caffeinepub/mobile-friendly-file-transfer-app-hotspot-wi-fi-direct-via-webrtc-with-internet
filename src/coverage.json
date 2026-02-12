@@ -1,56 +1,24 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T13:31:00.031Z",
+  "generatedAt": "2026-02-12T13:34:24.805Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-23",
-        "summary": "Refine the Android permission-check logic for file selection so the app only triggers an OS permission prompt when it is actually required, and does not request an incomplete permission set for the selected files.",
+        "id": "REQ-26",
+        "summary": "Remove the \"Built with ❤️ using caffeine.ai\" attribution line (including the caffeine.ai link) from the app home page (Landing screen) footer, leaving the remaining footer content (e.g., Privacy Policy link and copyright) intact and visually well-spaced.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-          "frontend/src/features/transfer/components/FilePicker.tsx"
+          "frontend/src/features/session/components/LandingScreen.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-          "frontend/src/features/transfer/components/FilePicker.tsx"
-        ]
-      },
-      {
-        "id": "REQ-24",
-        "summary": "Update the file-selection UI permission prompting experience to be user-friendly and predictable: show a clear rationale before requesting permission, avoid repeated OS prompts on every tap after denial, and provide clear next-step actions when permission is denied.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/features/transfer/components/FilePermissionPromptCard.tsx",
-          "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-          "frontend/src/features/transfer/components/FilePicker.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/features/transfer/components/FilePermissionPromptCard.tsx",
-          "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-          "frontend/src/features/transfer/components/FilePicker.tsx"
-        ]
-      },
-      {
-        "id": "REQ-25",
-        "summary": "Ensure all user-facing permission-related strings are accurate, Android-version-appropriate, and consistently written in English across the permission hook and file picker UI.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/features/transfer/utils/permissionCopy.ts",
-          "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-          "frontend/src/features/transfer/components/FilePicker.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/features/transfer/utils/permissionCopy.ts",
-          "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-          "frontend/src/features/transfer/components/FilePicker.tsx"
+          "frontend/src/features/session/components/LandingScreen.tsx"
         ]
       }
     ]
@@ -60,10 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/features/transfer/components/FilePermissionPromptCard.tsx",
-    "frontend/src/features/transfer/components/FilePicker.tsx",
-    "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-    "frontend/src/features/transfer/utils/permissionCopy.ts",
+    "frontend/src/features/session/components/LandingScreen.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

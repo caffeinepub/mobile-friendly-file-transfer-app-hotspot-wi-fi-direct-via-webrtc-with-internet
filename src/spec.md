@@ -1,14 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Improve Android file-selection permission behavior so permission prompts only appear when truly needed, request the correct permission set, and provide a clear, predictable in-app permission UX.
+**Goal:** Remove the “Built with ❤️ using caffeine.ai” attribution line from the home/landing page footer while keeping the rest of the footer intact.
 
 **Planned changes:**
-- Refine Android permission-check logic around file selection to avoid unnecessary OS prompts, avoid incomplete/incorrect permission requests for the chosen picker mode, and keep Android 12-and-below vs Android 13+ handling deterministic.
-- Ensure non-Android (web) file picking never triggers any permission flow and always proceeds directly to the browser file picker.
-- Update the file-selection UI to introduce an in-app rationale step (English) before requesting runtime permissions, with clear actions (e.g., Continue / Not now).
-- After permission denial, replace repeated OS prompting with a persistent, user-friendly message and next steps (e.g., Try again, Open settings when available, or manual settings instructions).
-- Update all permission-related strings (hook + file picker UI) to be accurate, consistent, English-only, and Android-version-appropriate; adjust the inline error banner wording to match the new flow.
-- Add/loading states during permission checks to prevent opening the picker until permission status is known.
+- Remove the “Built with” / “created by” / “caffeine.ai” attribution text and link from the home (landing) screen footer only.
+- Adjust footer spacing/layout so the remaining items (e.g., Privacy Policy link, copyright) stay well-spaced with no awkward gap.
 
-**User-visible outcome:** On Android, users see a clear explanation before any permission request, are not spammed by repeated OS prompts after denying, and can reliably proceed to file picking when no permission is required; on web, the file picker opens directly without any permission flow.
+**User-visible outcome:** On the home/landing screen, users no longer see any caffeine.ai attribution in the footer, and the Privacy Policy link remains available and works as before.

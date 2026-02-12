@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 13,
+  "projectStateVersion": 15,
   "summary": "Android app for copying files between two mobile devices using hotspot and Wi‑Fi Direct connections.",
   "architectural_notes": [
     "Add a Play Store release pipeline: generate signed AAB/release APK, configure versioning, and ensure required manifests/permissions, privacy policy, and store listing assets are in place.",
@@ -208,6 +208,14 @@
         "REQ-25"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-the-built-with-using-caffeine-ai-attribution-line-including-the-caffeine-ai-link-from-the-app-home-page-landing-screen-footer-leaving-the-remaining-footer-content-e-g-privacy-policy-link-and-copyright-intact-and-visually-well-spaced",
+      "title": "Remove the \"Built with ❤️ using caffeine.ai\" attribution line (including the caffeine.ai link) from the app home page (Landing screen) footer, leaving the remaining footer content (e.g., Privacy Policy link and copyright) intact and visually well-spaced.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -232,6 +240,12 @@
     {
       "id": "AR-5",
       "summary": "Integrate the user-provided logo into the app branding (in-app header/splash and Android launcher/store assets as applicable).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Remove the \"created by caffeine\" line from the app home page.",
       "reqIds": [],
       "status": "pending"
     }

@@ -62,17 +62,6 @@ export default function LandingScreen({ onStartAsSender, onStartAsReceiver }: La
 
       <footer className="border-t border-border py-6 px-6 text-center text-sm text-muted-foreground space-y-2">
         <p>
-          Built with ❤️ using{' '}
-          <a
-            href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline"
-          >
-            caffeine.ai
-          </a>
-        </p>
-        <p>
           <a
             href="/privacy.html"
             target="_blank"

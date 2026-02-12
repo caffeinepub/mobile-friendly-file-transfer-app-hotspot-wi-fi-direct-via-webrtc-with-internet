@@ -1,73 +1,34 @@
 {
   "kind": "build_request",
-  "title": "Fine-tune Android file permission prompt behavior for file selection",
+  "title": "Remove Caffeine attribution line from home page footer",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-23",
-      "text": "Refine the Android permission-check logic for file selection so the app only triggers an OS permission prompt when it is actually required, and does not request an incomplete permission set for the selected files.",
+      "id": "REQ-26",
+      "text": "Remove the \"Built with ❤️ using caffeine.ai\" attribution line (including the caffeine.ai link) from the app home page (Landing screen) footer, leaving the remaining footer content (e.g., Privacy Policy link and copyright) intact and visually well-spaced.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "Fine tune how the permission prompt behaves"
+          "Remove created by caffeine line from app home page"
         ]
       },
       "acceptanceCriteria": [
-        "On non-Android (normal web) environments, tapping the file picker never triggers a permission flow and proceeds directly to the browser file picker.",
-        "On Android, the app does not request a permission that would still prevent selecting common file types (e.g., avoid requesting only media permissions when selecting any file type).",
-        "If the platform/file picker flow does not require runtime permissions (e.g., system picker can be used without storage/media runtime permission), the app proceeds to open the picker without prompting.",
-        "The permission logic continues to handle Android 12 and below vs Android 13+ differences cleanly and deterministically (no flickering states)."
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "text": "Update the file-selection UI permission prompting experience to be user-friendly and predictable: show a clear rationale before requesting permission, avoid repeated OS prompts on every tap after denial, and provide clear next-step actions when permission is denied.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Fine tune how the permission prompt behaves"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When the app determines it needs a runtime permission, the user first sees an in-app rationale (English) explaining what will be requested and why, with explicit actions like \"Continue\" and \"Not now\" (or equivalent).",
-        "If the user denies permission, subsequent taps do not immediately re-trigger the OS permission prompt; instead the UI shows a persistent, clear explanation and offers actions such as \"Try again\" and \"Open settings\" (if available) or clear instructions to enable permission in Android settings.",
-        "The existing inline error banner in the file picker is updated to match the new flow and wording (English) and does not show misleading text (e.g., do not say \"Storage permission\" when the platform is requesting a different permission).",
-        "While permission status is being checked, the UI reflects a loading state and does not open the file picker until the check completes."
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "text": "Ensure all user-facing permission-related strings are accurate, Android-version-appropriate, and consistently written in English across the permission hook and file picker UI.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Fine tune how the permission prompt behaves"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All permission-related messages shown in the UI are in English.",
-        "Messages correctly reference the type of access being requested (e.g., \"media\" vs \"storage\") and avoid promising capabilities the permission does not grant.",
-        "If an \"Open settings\" action is provided but cannot be executed on the current platform, the UI falls back to clear manual steps (English) without errors."
+        "On the home/landing screen, the footer no longer shows any \"Built with\" / \"created by\" / \"caffeine.ai\" attribution text or link.",
+        "The Privacy Policy link remains present and functional.",
+        "Footer layout still looks consistent (no excessive empty gap where the removed line was)."
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui (compose them instead).",
-    "Keep all backend logic in the single Motoko actor; no backend changes are required unless strictly necessary for this permission UX change."
+    "Do not edit any files under frontend/src/components/ui or any other paths listed in frontend.immutablePaths.",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Changing WebRTC signaling, session lifecycle, or transfer protocol behavior.",
-    "Adding third-party permission libraries beyond Capacitor/browser capabilities.",
-    "Implementing any ads-related functionality (existing ads placeholders are out of scope)."
+    "Removing attribution text from non-home screens.",
+    "Changing app branding, logo assets, or any other footer links besides the Caffeine attribution line."
   ],
   "imageRequirements": {
     "required": [],

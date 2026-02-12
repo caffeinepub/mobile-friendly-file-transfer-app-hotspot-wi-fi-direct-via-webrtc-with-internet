@@ -1,36 +1,14 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T13:31:00.027Z",
-  "summary": "Diff adds an Android-specific permission flow UI (rationale/denied/checking) and a new permission hook/copy, but the underlying Android permission logic appears to (a) always treat Capacitor Android as requiring runtime permission and (b) request/check only Android 13+ media-style permission (\"photos\"), which can be an incomplete permission set for selecting arbitrary file types. Some UX/strings requirements are implemented, but key REQ-23 acceptance criteria are not fully met based on the shown logic/copy.",
-  "missing_requirements": [
-    {
-      "id": "REQ-23",
-      "requirement": "On Android, only trigger an OS permission prompt when actually required; do not request an incomplete permission set for the selected files; allow proceeding to the picker without prompting when runtime permission is not needed; handle Android 12- vs 13+ deterministically.",
-      "reason": "The hook sets `needsPermission = isCapacitorAndroid()` (so Android always enters a permission flow) and for API >= 33 checks/requests only `permissionName = 'photos'`, while the UI/file picker is for selecting arbitrary files. This risks requesting an incomplete permission set (media-only) that still prevents selecting common non-media file types, and it can prompt even if the system picker flow would work without runtime permissions.",
-      "evidence": [
-        "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts (needsPermission = isCapacitorAndroid; apiLevel>=33 => permissionName 'photos', else 'storage')",
-        "frontend/src/features/transfer/components/FilePicker.tsx (permission flow gates clicking based on needsPermission/flowState)"
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "requirement": "Permission-related strings must be accurate to the access being requested and must not promise capabilities the permission does not grant (e.g., avoid media-only wording if selecting any file type).",
-      "reason": "For Android 13+ the copy says it needs access to \"photos and videos\" and that the permission is required to \"browse and select files from your device\". Combined with checking only `'photos'` permission, this appears inaccurate for selecting arbitrary file types (and potentially even for videos if the underlying permission is truly photos-only).",
-      "evidence": [
-        "frontend/src/features/transfer/utils/permissionCopy.ts (Android 13+ copy: \"photos and videos\"; \"select files\"; \"browse and select files\")",
-        "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts (apiLevel>=33 => permissionName = 'photos')"
-      ]
-    }
-  ],
+  "generatedAt": "2026-02-12T13:34:24.800Z",
+  "summary": "REQ-26 appears implemented: the LandingScreen footer no longer contains the \"Built with ❤️ using caffeine.ai\" attribution line/link, while keeping the Privacy Policy link and copyright, with spacing preserved via the existing footer layout classes.",
+  "missing_requirements": [],
   "hallucinated_features": [],
-  "confidence": 0.66,
+  "confidence": 0.78,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/features/transfer/components/FilePermissionPromptCard.tsx",
-    "frontend/src/features/transfer/components/FilePicker.tsx",
-    "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
-    "frontend/src/features/transfer/utils/permissionCopy.ts",
+    "frontend/src/features/session/components/LandingScreen.tsx",
     "project_state.json"
   ]
 }
