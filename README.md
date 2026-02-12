@@ -1,2 +1,3 @@
-# mobile-friendly-file-transfer-app-hotspot-wi-fi-direct-via-webrtc-with-internet
-Exported from Caffeine project: Mobile-friendly file transfer app (hotspot/Wi‑Fi Direct via WebRTC) with Internet Computer signaling
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

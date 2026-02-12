@@ -1,0 +1,243 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 13,
+  "summary": "Android app for copying files between two mobile devices using hotspot and Wi‑Fi Direct connections.",
+  "architectural_notes": [
+    "Add a Play Store release pipeline: generate signed AAB/release APK, configure versioning, and ensure required manifests/permissions, privacy policy, and store listing assets are in place.",
+    "Add Android runtime permission handling for file access/transfer (request at action time, handle denial, and account for scoped storage requirements on newer Android)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-mobile-first-react-ui-that-lets-a-user-start-a-transfer-session-as-a-sender-or-receiver-shows-a-short-join-code-qr-and-lets-the-other-device-join-the-same-session-using-the-code",
+      "title": "Create a mobile-first React UI that lets a user start a transfer session (as a Sender or Receiver), shows a short join code/QR, and lets the other device join the same session using the code.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-peer-to-peer-file-transfer-between-two-devices-using-webrtc-datachannels-so-that-files-can-be-copied-directly-when-both-devices-are-connected-via-the-same-hotspot-wi-fi-network-including-wi-fi-direct-if-the-browser-network-supports-it",
+      "title": "Implement peer-to-peer file transfer between two devices using WebRTC DataChannels so that files can be copied directly when both devices are connected via the same hotspot/Wi‑Fi network (including Wi‑Fi Direct if the browser/network supports it).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-motoko-backend-signaling-mechanism-to-exchange-webrtc-offers-answers-and-ice-candidates-for-a-session-code-using-polling-from-the-frontend-react-query-rather-than-real-time-sockets",
+      "title": "Add a Motoko backend signaling mechanism to exchange WebRTC offers/answers and ICE candidates for a session code, using polling from the frontend (React Query) rather than real-time sockets.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-simple-session-lifecycle-session-creation-join-connected-state-transfer-state-completed-failed-state-and-explicit-disconnect-show-clear-error-messages-and-retry-actions-when-pairing-fails",
+      "title": "Implement a simple session lifecycle: session creation, join, connected state, transfer state, completed/failed state, and explicit disconnect; show clear error messages and retry actions when pairing fails.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-professional-modern-visual-theme-consistently-across-the-app-colors-typography-spacing-components-suitable-for-a-mobile-file-transfer-utility-avoid-blue-purple-as-primary-branding",
+      "title": "Apply a professional, modern visual theme consistently across the app (colors, typography, spacing, components) suitable for a mobile file-transfer utility; avoid blue/purple as primary branding.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-brand-assets-logo-and-a-simple-hero-illustration-to-the-frontend-and-use-them-in-the-ui-splash-landing-header-and-session-screen-header",
+      "title": "Add generated static brand assets (logo and a simple hero illustration) to the frontend and use them in the UI (splash/landing header and session screen header).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-android-packaging-layer-for-the-existing-react-web-app-so-it-can-be-built-as-a-google-play-store-release-artifact-android-app-bundle-including-a-reproducible-local-build-process-debug-and-release-documented-in-repo",
+      "title": "Add an Android packaging layer for the existing React web app so it can be built as a Google Play Store release artifact (Android App Bundle), including a reproducible local build process (debug and release) documented in-repo.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-configure-play-store-ready-android-app-identity-and-metadata-applicationid-package-name-app-name-versionname-versioncode-min-target-sdk-and-required-android-permissions-for-webrtc-file-transfer-so-the-app-installs-and-runs-on-android-devices-without-runtime-crashes",
+      "title": "Configure Play Store–ready Android app identity and metadata: applicationId/package name, app name, versionName/versionCode, min/target SDK, and required Android permissions for WebRTC/file transfer so the app installs and runs on Android devices without runtime crashes.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-play-store-compliance-essentials-to-the-repo-a-privacy-policy-document-and-a-simple-in-app-link-to-it-and-a-data-safety-notes-template-describing-what-data-the-app-collects-shares-if-any-and-how-it-is-handled",
+      "title": "Add Play Store compliance essentials to the repo: a Privacy Policy document (and a simple in-app link to it), and a Data Safety notes template describing what data the app collects/shares (if any) and how it is handled.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-and-wire-up-required-store-launcher-assets-for-android-adaptive-launcher-icons-splash-screen-assets-and-any-required-web-manifest-favicon-equivalents-so-branding-is-consistent-between-play-listing-launcher-and-in-app-header",
+      "title": "Add and wire up required store/launcher assets for Android: adaptive launcher icons, splash screen assets, and any required web manifest/favicon equivalents so branding is consistent between Play listing, launcher, and in-app header.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-play-store-release-checklist-and-metadata-pack-in-repo-english-short-description-full-description-app-category-content-rating-notes-and-a-step-by-step-checklist-for-play-console-submission",
+      "title": "Create a Play Store release checklist and metadata pack in-repo (English): short description, full description, app category, content rating notes, and a step-by-step checklist for Play Console submission.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-configure-the-android-project-to-use-google-mobile-ads-sdk-and-register-the-admob-app-id-ca-app-pub-9503740796052590-89972945552-so-the-capacitor-android-build-initializes-admob-without-runtime-errors",
+      "title": "Configure the Android project to use Google Mobile Ads SDK and register the AdMob App ID `ca-app-pub-9503740796052590~89972945552` so the Capacitor Android build initializes AdMob without runtime errors.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-capacitor-friendly-admob-integration-layer-that-can-request-and-render-admob-native-ads-in-the-app-ui-with-ad-loading-disabled-automatically-when-running-as-a-normal-web-app-non-android-browser-to-avoid-errors",
+      "title": "Add a Capacitor-friendly AdMob integration layer that can request and render AdMob *native ads* in the app UI, with ad loading disabled automatically when running as a normal web app (non-Android browser) to avoid errors.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-at-least-one-native-ad-placement-in-the-react-ui-using-a-reusable-component-e-g-nativeadcard-and-display-it-on-the-landing-screen-without-disrupting-the-primary-send-receive-actions",
+      "title": "Add at least one native ad placement in the React UI using a reusable component (e.g., `NativeAdCard`) and display it on the landing screen without disrupting the primary send/receive actions.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-play-store-compliance-documentation-in-repo-to-reflect-that-the-app-contains-ads-and-that-ad-related-data-handling-may-apply-when-using-admob",
+      "title": "Update Play Store compliance documentation in-repo to reflect that the app contains ads and that ad-related data handling may apply when using AdMob.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-admob-integration-from-the-android-project-so-the-app-no-longer-includes-google-mobile-ads-sdk-initialization-admob-metadata-or-the-native-ad-capacitor-plugin",
+      "title": "Remove the AdMob integration from the Android project so the app no longer includes Google Mobile Ads SDK initialization, AdMob metadata, or the native ad Capacitor plugin.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-native-ad-ui-and-related-frontend-ad-loading-logic-so-the-app-no-longer-attempts-to-load-or-display-ads",
+      "title": "Remove the native ad UI and related frontend ad-loading logic so the app no longer attempts to load or display ads.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-play-store-compliance-documentation-to-reflect-that-the-app-no-longer-contains-ads-and-does-not-collect-advertising-id-via-admob",
+      "title": "Update Play Store compliance documentation to reflect that the app no longer contains ads and does not collect Advertising ID via AdMob.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-enable-the-android-app-to-request-any-necessary-runtime-permissions-when-the-user-attempts-to-share-send-files-and-show-clear-english-guidance-when-permissions-are-denied",
+      "title": "Enable the Android app to request any necessary runtime permissions when the user attempts to share/send files, and show clear English guidance when permissions are denied.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-logo-image-1770901198894-png-to-the-frontend-static-assets-and-use-it-as-the-primary-in-app-logo-in-the-session-header",
+      "title": "Add the user-uploaded logo image (1770901198894.png) to the frontend static assets and use it as the primary in-app logo in the session header.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-web-pwa-icon-assets-to-use-the-user-provided-logo-so-the-browser-tab-icon-and-installed-pwa-icon-match-the-new-branding",
+      "title": "Update web/PWA icon assets to use the user-provided logo so the browser tab icon and installed PWA icon match the new branding.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-android-launcher-icon-and-splash-icon-assets-to-use-the-user-provided-logo-so-the-installed-android-app-uses-the-new-logo-on-the-home-screen-and-splash-screen",
+      "title": "Update Android launcher icon and splash icon assets to use the user-provided logo so the installed Android app uses the new logo on the home screen and splash screen.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-refine-the-android-permission-check-logic-for-file-selection-so-the-app-only-triggers-an-os-permission-prompt-when-it-is-actually-required-and-does-not-request-an-incomplete-permission-set-for-the-selected-files",
+      "title": "Refine the Android permission-check logic for file selection so the app only triggers an OS permission prompt when it is actually required, and does not request an incomplete permission set for the selected files.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-file-selection-ui-permission-prompting-experience-to-be-user-friendly-and-predictable-show-a-clear-rationale-before-requesting-permission-avoid-repeated-os-prompts-on-every-tap-after-denial-and-provide-clear-next-step-actions-when-permission-is-denied",
+      "title": "Update the file-selection UI permission prompting experience to be user-friendly and predictable: show a clear rationale before requesting permission, avoid repeated OS prompts on every tap after denial, and provide clear next-step actions when permission is denied.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-user-facing-permission-related-strings-are-accurate-android-version-appropriate-and-consistently-written-in-english-across-the-permission-hook-and-file-picker-ui",
+      "title": "Ensure all user-facing permission-related strings are accurate, Android-version-appropriate, and consistently written in English across the permission hook and file picker UI.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a professional, modern Android app to transfer/copy files between two phones using hotspot and Wi‑Fi Direct to connect devices.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Prepare the Android app for Google Play Store deployment (release build/signing, app bundle, required metadata/policies/compliance).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Prompt for and handle necessary Android runtime permissions during file sharing/transfer to ensure transfers work reliably on modern Android versions.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Integrate the user-provided logo into the app branding (in-app header/splash and Android launcher/store assets as applicable).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Mobile-friendly file transfer app (hotspot/Wi‑Fi Direct via WebRTC) with Internet Computer signaling",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

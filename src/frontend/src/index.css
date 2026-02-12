@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Neutral base with teal/emerald accent */
+        --background: 0.98 0 0;
+        --foreground: 0.15 0 0;
+        --card: 1 0 0;
+        --card-foreground: 0.15 0 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0 0;
+        
+        /* Teal/Emerald primary */
+        --primary: 0.55 0.15 170;
+        --primary-foreground: 0.98 0 0;
+        
+        /* Neutral secondary */
+        --secondary: 0.94 0 0;
+        --secondary-foreground: 0.15 0 0;
+        
+        --muted: 0.96 0 0;
+        --muted-foreground: 0.50 0 0;
+        
+        --accent: 0.96 0.02 170;
+        --accent-foreground: 0.15 0 0;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        
+        --border: 0.90 0 0;
+        --input: 0.90 0 0;
+        --ring: 0.55 0.15 170;
+        
+        --chart-1: 0.55 0.15 170;
+        --chart-2: 0.65 0.18 140;
+        --chart-3: 0.45 0.12 200;
+        --chart-4: 0.60 0.16 155;
+        --chart-5: 0.50 0.14 185;
+    }
+
+    .dark {
+        --background: 0.12 0 0;
+        --foreground: 0.95 0 0;
+        --card: 0.16 0 0;
+        --card-foreground: 0.95 0 0;
+        --popover: 0.18 0 0;
+        --popover-foreground: 0.95 0 0;
+        
+        /* Brighter teal for dark mode */
+        --primary: 0.65 0.18 170;
+        --primary-foreground: 0.12 0 0;
+        
+        --secondary: 0.20 0 0;
+        --secondary-foreground: 0.95 0 0;
+        
+        --muted: 0.22 0 0;
+        --muted-foreground: 0.60 0 0;
+        
+        --accent: 0.24 0.04 170;
+        --accent-foreground: 0.95 0 0;
+        
+        --destructive: 0.60 0.24 25;
+        --destructive-foreground: 0.95 0 0;
+        
+        --border: 0.25 0 0;
+        --input: 0.25 0 0;
+        --ring: 0.65 0.18 170;
+        
+        --chart-1: 0.65 0.18 170;
+        --chart-2: 0.70 0.20 140;
+        --chart-3: 0.55 0.14 200;
+        --chart-4: 0.68 0.19 155;
+        --chart-5: 0.60 0.16 185;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    /* Improve tap targets for mobile */
+    button, a, input, select, textarea {
+        @apply min-h-[44px];
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+}

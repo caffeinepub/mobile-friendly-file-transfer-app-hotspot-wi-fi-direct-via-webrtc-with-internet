@@ -1,0 +1,82 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Android file picker permission flow: reduce prompts, improve UX, and unify strings",
+  "requirements": [
+    {
+      "id": "REQ-23",
+      "summary": "Refine Android file-picker permission checks to only request runtime permissions when truly needed and avoid incomplete permission sets.",
+      "acceptanceCriteria": [
+        "On non-Android (normal web) environments, tapping the file picker never triggers a permission flow and proceeds directly to the browser file picker.",
+        "On Android, the app does not request a permission that would still prevent selecting common file types (e.g., avoid requesting only media permissions when selecting any file type).",
+        "If the platform/file picker flow does not require runtime permissions (e.g., system picker can be used without storage/media runtime permission), the app proceeds to open the picker without prompting.",
+        "The permission logic continues to handle Android 12 and below vs Android 13+ differences cleanly and deterministically (no flickering states)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
+          "operation": "modify",
+          "description": "Rework the hook into a deterministic permission decision flow for Capacitor Android vs normal web: (1) add explicit platform gating so non-Android never queries/requests permissions, (2) add a clear 'needsRuntimePermission' determination (defaulting to 'no' when the system file picker can be used), (3) when runtime permission is truly required, ensure the requested permission set matches the selection intent (avoid media-only permissions for generic file picking), and (4) remove implicit immediate OS prompt behavior so the UI can show a rationale before any request."
+        },
+        {
+          "path": "frontend/src/features/transfer/components/FilePicker.tsx",
+          "operation": "modify",
+          "description": "Update the file-picker click handler to use the refined permission hook behavior: open the file input immediately when no runtime permission is needed; only proceed into a requestable flow when the hook indicates it is required; prevent any permission-related logic from running on non-Android web."
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Make permission prompting user-friendly: show rationale before requesting, avoid repeated OS prompts after denial, and provide clear denial next steps with loading states.",
+      "acceptanceCriteria": [
+        "When the app determines it needs a runtime permission, the user first sees an in-app rationale (English) explaining what will be requested and why, with explicit actions like \"Continue\" and \"Not now\" (or equivalent).",
+        "If the user denies permission, subsequent taps do not immediately re-trigger the OS permission prompt; instead the UI shows a persistent, clear explanation and offers actions such as \"Try again\" and \"Open settings\" (if available) or clear instructions to enable permission in Android settings.",
+        "The existing inline error banner in the file picker is updated to match the new flow and wording (English) and does not show misleading text (e.g., do not say \"Storage permission\" when the platform is requesting a different permission).",
+        "While permission status is being checked, the UI reflects a loading state and does not open the file picker until the check completes."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/transfer/components/FilePermissionPromptCard.tsx",
+          "operation": "create",
+          "description": "Create a small, reusable in-app UI component for the permission flow states (rationale, denied, checking). It should render: rationale copy + actions (Continue / Not now), denied copy + actions (Try again / Open settings when available), and a loading state. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
+          "operation": "modify",
+          "description": "Add UX-supporting state to the hook so the UI can avoid repeated OS prompts: track whether the user previously denied, expose whether the app should show rationale vs denied guidance, and provide an action to attempt opening Android settings (when available) or return a flag for manual instructions fallback. Ensure the hook exposes a stable 'checking' state to prevent flicker and avoid opening the picker until checks complete."
+        },
+        {
+          "path": "frontend/src/features/transfer/components/FilePicker.tsx",
+          "operation": "modify",
+          "description": "Integrate FilePermissionPromptCard into the FilePicker: show an in-app rationale before any OS prompt; after denial, persistently show the denial explanation and actions instead of immediately re-requesting on every tap; update the existing inline banner to reflect the new flow and use accurate wording; disable/opening file input while permission status is checking."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Centralize and standardize permission-related English strings with Android-version-appropriate wording and safe fallbacks when settings cannot be opened.",
+      "acceptanceCriteria": [
+        "All permission-related messages shown in the UI are in English.",
+        "Messages correctly reference the type of access being requested (e.g., \"media\" vs \"storage\") and avoid promising capabilities the permission does not grant.",
+        "If an \"Open settings\" action is provided but cannot be executed on the current platform, the UI falls back to clear manual steps (English) without errors."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/transfer/utils/permissionCopy.ts",
+          "operation": "create",
+          "description": "Add a centralized set of English permission-related copy strings and helper selectors (e.g., generic file access vs media access; Android 13+ vs Android 12 and below; settings instructions fallback)."
+        },
+        {
+          "path": "frontend/src/features/transfer/hooks/useAndroidFilePickerPermissions.ts",
+          "operation": "modify",
+          "description": "Replace hard-coded permission messages with standardized strings from permissionCopy and ensure the hook selects Android-version-appropriate wording (e.g., avoid saying 'Storage permission' when requesting different access)."
+        },
+        {
+          "path": "frontend/src/features/transfer/components/FilePicker.tsx",
+          "operation": "modify",
+          "description": "Update all permission-related UI strings (rationale, denied state, loading state) to use permissionCopy, ensuring consistent English wording and a safe fallback when 'Open settings' cannot be executed."
+        }
+      ]
+    }
+  ]
+}

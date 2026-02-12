@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    <!-- FileDrop splash icon -->
+    <path
+        android:fillColor="#14B8A6"
+        android:pathData="M100,40 L100,80 L70,80 L100,120 L130,80 L100,80 L100,40 Z" />
+    <path
+        android:fillColor="#14B8A6"
+        android:pathData="M60,140 L140,140 L140,160 L60,160 Z" />
+    <path
+        android:fillColor="#0D9488"
+        android:pathData="M75,100 L75,130 L65,130 L65,100 Z" />
+    <path
+        android:fillColor="#0D9488"
+        android:pathData="M125,100 L125,130 L135,130 L135,100 Z" />
+</vector>
